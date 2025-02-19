@@ -1,4 +1,10 @@
-import { ChangeEvent, FC, FormEvent, useState } from "react";
+import {
+  ChangeEvent,
+  FC,
+  FormEvent,
+  useRef,
+  useState,
+} from "react";
 import styles from "./CommentForm.module.css";
 
 interface CommentFormProps {
@@ -18,6 +24,7 @@ const CommentForm: FC<CommentFormProps> = ({
     text: "",
   });
   const [error, setError] = useState("");
+  const textRef = useRef<HTMLTextAreaElement>(null);
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -49,6 +56,8 @@ const CommentForm: FC<CommentFormProps> = ({
       email: "",
       text: "",
     });
+
+    textRef.current?.focus();
   };
 
   const handleChange = (
@@ -83,6 +92,7 @@ const CommentForm: FC<CommentFormProps> = ({
         className={styles.input}
       />
       <textarea
+        ref={textRef}
         placeholder="Ваш комментарий"
         value={form.text}
         onChange={handleChange}
