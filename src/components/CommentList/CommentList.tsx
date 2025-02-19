@@ -5,10 +5,12 @@ import styles from "./CommentList.module.css";
 
 interface CommentListProps {
   comments: ComentType[];
+  onRate: (id: string, delta: number) => void;
 }
 
 const CommentList: FC<CommentListProps> = ({
   comments,
+  onRate,
 }) => {
   return (
     <div className={styles.commentList}>
@@ -17,6 +19,7 @@ const CommentList: FC<CommentListProps> = ({
           <Comment
             key={comment.id}
             comment={comment}
+            onRate={onRate}
           />
         ))
       ) : (

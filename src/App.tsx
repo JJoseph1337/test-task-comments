@@ -26,10 +26,18 @@ function App() {
     setComments([newComment, ...comments]);
   };
 
+  const handleRate = (id: string, delta: number) => {
+    setComments((prevComments) =>
+      prevComments.map((comment) =>
+        comment.id === id ? { ...comment, rating: comment.rating + delta } : comment
+      )
+    );
+  };
+
   return (
     <div className={styles.container}>
       <CommentForm onAddComment={handleAddComment} />
-      <CommentList comments={comments} />
+      <CommentList comments={comments} onRate={handleRate} />
     </div>
   );
 }
