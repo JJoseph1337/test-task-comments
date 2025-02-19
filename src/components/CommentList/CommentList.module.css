@@ -1,0 +1,12 @@
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.empty {
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+}
