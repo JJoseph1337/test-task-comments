@@ -1,4 +1,4 @@
-export interface CommentType {
+export interface Comment {
   id: string;
   avatar: string;
   author: string;
@@ -6,5 +6,3 @@ export interface CommentType {
   timestamp: number;
   rating: number;
 }
-
-

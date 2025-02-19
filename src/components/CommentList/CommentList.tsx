@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { CommentType } from "../../types";
+import { Comment as ComentType } from "../../types";
 import Comment from "../Comment/Comment";
 import styles from "./CommentList.module.css";
 
 interface CommentListProps {
-  comments: CommentType[];
+  comments: ComentType[];
 }
 
 const CommentList: FC<CommentListProps> = ({
