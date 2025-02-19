@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { Comment as CommentType } from "../../types";
 import styles from "./Comment.module.css";
+import { formatTimeAgo } from "../../utilts";
 
 interface CommentProps {
   comment: CommentType;
@@ -27,7 +28,7 @@ const Comment: FC<CommentProps> = ({ comment, onRate }) => {
           <p className={styles.author}>{comment.author}</p>
           <p className={styles.text}>{comment.text}</p>
           <div className={styles.footer}>
-            <span className={styles.timestamp}>{comment.timestamp}</span>
+            <span className={styles.timestamp}>{formatTimeAgo(comment.timestamp)}</span>
             <div className={styles.ratingControls}>
               <button onClick={() => handleRate(1)} className={styles.rateButton}>+</button>
               <span className={styles.rating}>{comment.rating}</span>
